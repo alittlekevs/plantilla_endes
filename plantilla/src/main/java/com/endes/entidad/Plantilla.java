@@ -1,6 +1,7 @@
 package com.endes.entidad;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -24,9 +25,15 @@ public class Plantilla {
      * @throws IllegalArgumentException Si el empleado es nulo.
      */
     public void contratarEmpleado(Empleado empleado) {
-        if (empleado == null) {
+    	if (empleado == null) {
             throw new IllegalArgumentException("No se puede contratar un empleado nulo");
         }
+    	
+    	for (int i = 0; i < empleados.size(); i++) {
+    		if (empleado.getDni() == empleados.get(i).getDni()) {
+                throw new IllegalArgumentException("No se puede contratar un empleado ya existente");
+            }
+		}
         empleados.add(empleado);
     }
 
