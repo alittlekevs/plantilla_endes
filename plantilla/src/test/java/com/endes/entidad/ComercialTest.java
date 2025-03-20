@@ -13,6 +13,7 @@ class ComercialTest {
 
 	Comercial c1;
 	Comercial c2;
+	Empleado e1;
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -53,9 +54,13 @@ class ComercialTest {
 	}
 	
 	@Test
-	@DisplayName("Debe obtener el sueldo del Comercial")
+	@DisplayName("Debe obtener el sueldo del Empleado Comercial")
 	void testGetSueldo() {
+		Double sueldoEsperado = 1250.0 + c1.calcularExtra();
+		assertEquals(sueldoEsperado, c1.getSueldo(), "No es el suelo del comercial 1 esperado");
 		
+		Double sueldoEsperado2 = 1250.0 + c2.calcularExtra();
+		assertEquals(sueldoEsperado2, c2.getSueldo(), "No es el sueldo del comercial 2 esperado");
 	}
 
 }
